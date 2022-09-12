@@ -1,0 +1,63 @@
+{
+  "name": "cli-opentelemetry",
+  "version": "0.0.0",
+  "description": "Open Telemetry wrapper for NodeJs CLI tools",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "npx rimraf dist",
+    "eslint": "npx eslint ./ --no-error-on-unmatched-pattern",
+    "prettier": "npx prettier --check --ignore-unknown ./**/*",
+    "build:typings": "npx tsc",
+    "bundle": "npx esbuild src/index.ts --bundle --minify --outfile=dist/index.js --platform=node --external:lodash --external:tslib --external:@opentelemetry/exporter-trace-otlp-proto",
+    "prebuild": "npm run prettier && npm run eslint && npm run clean",
+    "build": "npm run build:typings && npm run bundle",
+    "pretest": "npm run build",
+    "test": "echo \"Warning: no test specified\"",
+    "postversion": "git push --follow-tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sodaru/cli-opentelemetry.git"
+  },
+  "keywords": [
+    "OTLP",
+    "Open",
+    "Telemetry",
+    "CLI"
+  ],
+  "author": "Raghavendra K R <raghavendra@sodaru.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sodaru/cli-opentelemetry/issues"
+  },
+  "homepage": "https://github.com/sodaru/cli-opentelemetry#readme",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "tslib": "^2.4.0",
+    "@opentelemetry/exporter-trace-otlp-proto": "^0.29.2"
+  },
+  "devDependencies": {
+    "@opentelemetry/api": "^1.1.0",
+    "@opentelemetry/resources": "^1.3.1",
+    "@opentelemetry/sdk-trace-base": "^1.3.1",
+    "@opentelemetry/semantic-conventions": "^1.3.1",
+    "eslint-config-sodaru": "^1.0.0",
+    "prettier-config-sodaru": "^1.0.0",
+    "nodejs-cli-runner": "^1.1.1",
+    "esbuild": "^0.14.48",
+    "lodash": "^4.17.21",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.4",
+    "uuid": "^8.3.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "sodaru"
+    ]
+  },
+  "prettier": "prettier-config-sodaru"
+}
