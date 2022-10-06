@@ -1,4 +1,4 @@
-import { tele } from "../dist/index";
+import { tele } from "../src/index";
 import { join } from "path";
 import {
   CLI_OPEN_TELEMETRY_DIAGNOSE,
