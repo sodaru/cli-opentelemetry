@@ -1,6 +1,6 @@
 {
   "name": "cli-opentelemetry",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Open Telemetry wrapper for NodeJs CLI tools",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
