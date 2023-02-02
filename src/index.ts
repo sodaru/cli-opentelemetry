@@ -179,6 +179,7 @@ export const tele = async (
           message: e instanceof ChildProcessError ? e.result.stderr : e?.message
         });
       }
+      process.exitCode = 1;
     }
   );
 

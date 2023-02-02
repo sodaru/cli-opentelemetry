@@ -22,6 +22,7 @@ describe("Test cli-open telemetry", () => {
       OTLP_HEADERS,
       5000
     );
+    expect(process.exitCode).toBeUndefined();
     await sleep(2000);
   }, 15000);
 });
